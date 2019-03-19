@@ -21,7 +21,7 @@ Route::get('/', function () {
             'Host'=>'www.amazon.co.jp',
             'accept-encoding'=>'gzip, deflate'
         ]
-    ])->find('#feature-bullets ul li')->texts();
-    print_r($res);
-    return view('welcome');
+    ])->getHtml();
+    echo ($res);
+//    return view('welcome');
 });
