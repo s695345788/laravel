@@ -23,7 +23,8 @@ Route::get('/', function () {
             'accept-encoding'=>'gzip, deflate'
         ]
     ]);
-//    dump($res);
-    print_r($res);
+    dump($res);
+//    file_put_contents($res)
+//    print_r($res);
 //    return view('welcome');
 });
