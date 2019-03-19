@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    $res = \QL\QueryList::get($this->url , [] , [
+    $url = 'https://www.amazon.co.jp/dp/B0782339QB';
+    $res = \QL\QueryList::get($url , [] , [
         'headers'=> [
             ':authority'=>'www.amazon.co.jp',
             ':method'=>'GET',
