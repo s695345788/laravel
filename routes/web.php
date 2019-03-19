@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    file_get_contents('http://202.182.120.210');
+//    file_get_contents('http://202.182.120.210');
     return view('welcome');
 });
