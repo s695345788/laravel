@@ -21,7 +21,7 @@ Route::get('/', function () {
             'Host'=>'www.amazon.co.jp',
             'accept-encoding'=>'gzip, deflate'
         ]
-    ])->getHtml();
-    echo ($res);
+    ])->find('#pd_pgh_B0782339QB_title')->texts();
+    print_r($res);
 //    return view('welcome');
 });
