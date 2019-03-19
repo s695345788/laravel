@@ -14,6 +14,7 @@
 Route::get('/', function () {
     $url = 'https://www.amazon.co.jp/dp/B0782339QB';
     $res = \QL\QueryList::get($url , [] , [
+//        'proxy' =>'http://127.0.0.1:1090',
         'headers'=> [
             'cache-control'=>'no-cache',
             'User-Agent'=>'PostmanRuntime/7.6.0',
@@ -21,7 +22,8 @@ Route::get('/', function () {
             'Host'=>'www.amazon.co.jp',
             'accept-encoding'=>'gzip, deflate'
         ]
-    ])->find('#pd_pgh_B0782339QB_title')->texts();
+    ]);
+//    dump($res);
     print_r($res);
 //    return view('welcome');
 });
