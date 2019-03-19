@@ -22,7 +22,7 @@ Route::get('/', function () {
             'Host'=>'www.amazon.co.jp',
             'accept-encoding'=>'gzip, deflate'
         ]
-    ])->getData();
+    ])->getHtml();
 //    dump($res);
     print_r($res);
 //    return view('welcome');
