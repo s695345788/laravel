@@ -17,8 +17,9 @@ Route::get('/', function () {
 //         'proxy' => 'http://127.0.0.1:1090',
          ])
         // 设置采集规则
-        ->getHtml();
+        ->find('div')->html();
 //        ->queryData();
+    dd($data);die;
     file_put_contents('B0782339QB.html',$data);
 //     dd($data);
 //    return view('welcome');
