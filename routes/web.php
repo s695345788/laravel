@@ -21,7 +21,7 @@ Route::get('/', function () {
      $ql = \QL\QueryList::html($data);
      $res = $ql->find('span')->texts();
 //        ->queryData();
-    dd($res);die;
+    dd($res->all());die;
     file_put_contents('B0782339QB.html',$data);
 //     dd($data);
 //    return view('welcome');
