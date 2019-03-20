@@ -22,7 +22,9 @@ Route::get('/', function () {
             'Host'=>'www.amazon.co.jp',
             'accept-encoding'=>'gzip, deflate'
         ]
-    ])->getHtml();
+    ]);
+
+    file_put_contents('1.txt',serialize($res));
 //    dump($res);
     print_r($res);
 //    return view('welcome');
