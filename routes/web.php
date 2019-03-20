@@ -12,18 +12,13 @@
 */
 
 Route::get('/', function () {
-    $url = 'https://www.amazon.co.jp/dp/B0782339QB';
-    $res = \QL\QueryList::get($url , [] , [
-//        'proxy' =>'http://127.0.0.1:1090',
-        'headers'=> [
-            'cache-control'=>'no-cache',
-            'User-Agent'=>'PostmanRuntime/7.6.0',
-            'Accept'=>"*/*",
-            'Host'=>'www.amazon.co.jp',
-            'accept-encoding'=>'gzip, deflate'
-        ]
-    ])->find('div span')->serialize();
-//    dump($res);
-    print_r($res);
+    $a= 1;
+     $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
+//         'proxy' => 'http://127.0.0.1:1090',
+         ])
+        // 设置采集规则
+        ->getHtml();
+//        ->queryData();
+     dd($data);
 //    return view('welcome');
 });
