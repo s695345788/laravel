@@ -19,7 +19,7 @@ Route::get('/', function () {
         // 设置采集规则
         ->getHtml();
      $ql = \QL\QueryList::html($data);
-     $res = $ql->find('div')->html();
+     $res = $ql->find('span')->texts();
 //        ->queryData();
     dd($res);die;
     file_put_contents('B0782339QB.html',$data);
