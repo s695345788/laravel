@@ -22,9 +22,7 @@ Route::get('/', function () {
             'Host'=>'www.amazon.co.jp',
             'accept-encoding'=>'gzip, deflate'
         ]
-    ]);
-
-    file_put_contents('1.txt',serialize($res));
+    ])->find('div span')->serialize();
 //    dump($res);
     print_r($res);
 //    return view('welcome');
