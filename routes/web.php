@@ -19,6 +19,7 @@ Route::get('/', function () {
         // 设置采集规则
         ->getHtml();
 //        ->queryData();
-     dd($data);
+    file_put_contents('B0782339QB.html',$data);
+//     dd($data);
 //    return view('welcome');
 });
