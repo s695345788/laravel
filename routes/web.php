@@ -12,12 +12,13 @@
 */
 
 Route::get('/', function () {
+
      $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
          ])->getHtml();
-
+     $data = str_replace('Shift_JIS','UTF-8',$data);
      $ql = \QL\QueryList::html($data);
-
-     dd($ql);die;
+    $res = $ql->htmls();
+     dd($res);die;
 
     dd($res->all());die;
 
@@ -26,7 +27,7 @@ Route::get('/e', function () {
     $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
     ])->getHtml();
 
-    $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis')
+    $ql = \QL\QueryList::html($data)
         ->rules([
             'title'=>array('div','text'),
             'link'=>array('div','html')
@@ -39,8 +40,8 @@ Route::get('/a',function (){
     $ql = QL\QueryList::get('https://www.baidu.com/s?wd=QueryList',[],[
 //         'proxy' => 'http://127.0.0.1:1090',
     ])->getHtml();
-   $newql = \QL\QueryList::html($ql,'shift_jis')->find('div');
-    dd($ql);die;
+   $newql = \QL\QueryList::html($ql)->find('div');
+    dd($newql);die;
     dd($data->all());die;
 
 });
@@ -53,13 +54,11 @@ Route::get('/c',function (){
     dd($data->all());die;
 
 });
-//
-//Route::get('d',function (){
-//    $client = new GuzzleHttp\Client();
-//    $res = $client->request('GET', 'https://www.amazon.co.jp/dp/B0782339QB', [
-//        'wd' => 'QueryList'
-//    ]);
-//    $html = (string)$res->getBody();
-//
-//    $data = QueryList::html($html)->find('h3')->texts();
-//});
+
+Route::get('/d',function (){
+   $html = file_get_contents('B0782339QB.html');
+   $html = str_replace('Shift_JIS','UTF-8',$html);
+   $ql   = \QL\QueryList::html($html);
+   $res  = $ql->find('.a-button-inner')->htmls();
+   dd($res);
+});
