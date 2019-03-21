@@ -15,9 +15,13 @@ Route::get('/', function () {
      $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
          ])->getHtml();
 
-     $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis');
-     $res = $ql->find('div');
-     dd($res);die;
+     $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis')
+     ->rules([
+         'title'=>array('div','text'),
+         'link'=>array('div','html')
+     ]);
+
+     dd($ql);die;
 
     dd($res->all());die;
 
@@ -26,11 +30,13 @@ Route::get('/e', function () {
     $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
     ])->getHtml();
 
-    $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis');
-    $res = $ql->find('div')->texts();
-    dd($res);die;
+    $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis')
+        ->rules([
+            'title'=>array('div','text'),
+            'link'=>array('div','html')
+        ])->queryData();
 
-    dd($res->all());die;
+    dd($ql);die;
 
 });
 Route::get('/a',function (){
