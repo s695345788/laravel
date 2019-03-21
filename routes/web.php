@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 //     dd($data);die;
      $ql = \QL\QueryList::html($data);
-     dd($ql);die;
+//     dd($ql);die;
      $res = $ql->find('span')->texts();
 //        ->queryData();
     dd($res->all());die;
-    file_put_contents('B0782339QB.html',$data);
+//    file_put_contents('B0782339QB.html',$data);
 //     dd($data);
 //    return view('welcome');
 });
