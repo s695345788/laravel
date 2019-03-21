@@ -37,7 +37,7 @@ Route::get('/a',function (){
     dd($data->all());die;
 
 });
-Route::get('/a',function (){
+Route::get('/c',function (){
     $ql = QL\QueryList::get('https://www.amazon.co.jp',[],[
 //         'proxy' => 'http://127.0.0.1:1090',
     ])->find('div');
