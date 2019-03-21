@@ -15,15 +15,15 @@ Route::get('/', function () {
 //    $a= 1;
      $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
 //         'proxy' => 'http://127.0.0.1:1090',
-         ])->getHtml();
-     $data = trim($data);
-
-//     dd($data);die;
-     $ql = \QL\QueryList::html($data);
-//     dd($ql);die;
-     $res = $ql->find('span')->texts();
-//        ->queryData();
-    dd($res->all());die;
+         ])->find('div')->texts();
+//     $data = trim($data);
+//
+////     dd($data);die;
+//     $ql = \QL\QueryList::html($data);
+////     dd($ql);die;
+//     $res = $ql->find('span')->texts();
+////        ->queryData();
+//    dd($res->all());die;
 //    file_put_contents('B0782339QB.html',$data);
 //     dd($data);
 //    return view('welcome');
