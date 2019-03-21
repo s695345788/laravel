@@ -28,9 +28,9 @@ Route::get('/', function () {
 //    return view('welcome');
 });
 Route::get('/a',function (){
-    $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
+    $data = QL\QueryList::get('https://www.baidu.com/s?wd=QueryList',[],[
 //         'proxy' => 'http://127.0.0.1:1090',
-    ])->find('.nav-a-content')->texts();
+    ])->find('div')->texts();
     dd($data->all());die;
 
 });
