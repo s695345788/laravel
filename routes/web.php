@@ -15,9 +15,7 @@ Route::get('/', function () {
 //    $a= 1;
      $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
 //         'proxy' => 'http://127.0.0.1:1090',
-         ])
-        // 设置采集规则
-        ->getHtml();
+         ]);
      dd($data);die;
      $ql = \QL\QueryList::html($data);
      $res = $ql->find('span')->texts();
@@ -28,9 +26,10 @@ Route::get('/', function () {
 //    return view('welcome');
 });
 Route::get('/a',function (){
-    $data = QL\QueryList::get('https://www.baidu.com/s?wd=QueryList',[],[
+    $ql = QL\QueryList::get('https://www.baidu.com/s?wd=QueryList',[],[
 //         'proxy' => 'http://127.0.0.1:1090',
-    ])->find('div')->texts();
+    ]);
+    dd($ql);die;
     dd($data->all());die;
 
 });
