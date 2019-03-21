@@ -12,22 +12,26 @@
 */
 
 Route::get('/', function () {
-//    $a= 1;
      $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
-//         'proxy' => 'http://127.0.0.1:1090',
          ])->getHtml();
-//     $data = trim($data);
-//
-////     dd($data);die;
-     $ql = \QL\QueryList::html($data,'shift_jis');
-//     dd($ql);die;
+
+     $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis');
      $res = $ql->find('div');
      dd($res);die;
-////        ->queryData();
+
     dd($res->all());die;
-//    file_put_contents('B0782339QB.html',$data);
-//     dd($data);
-//    return view('welcome');
+
+});
+Route::get('/e', function () {
+    $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
+    ])->getHtml();
+
+    $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis');
+    $res = $ql->find('div')->texts();
+    dd($res);die;
+
+    dd($res->all());die;
+
 });
 Route::get('/a',function (){
     $ql = QL\QueryList::get('https://www.baidu.com/s?wd=QueryList',[],[
