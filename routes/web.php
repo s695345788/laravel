@@ -19,8 +19,8 @@ Route::get('/', function () {
 //     $data = trim($data);
 //
 ////     dd($data);die;
-     $ql = \QL\QueryList::html($data,'shift_jis');
-//     dd($ql);die;
+     $ql = \QL\QueryList::sethtml($data,'shift_jis');
+     dd($ql);die;
      $res = $ql->find('span')->texts();
 ////        ->queryData();
     dd($res->all());die;
