@@ -17,7 +17,7 @@ Route::get('/', function () {
          ])->getHtml();
      $data = str_replace('Shift_JIS','UTF-8',$data);
      $ql = \QL\QueryList::html($data);
-    $res = $ql->htmls();
+    $res = $ql->find('span')->htmls();
      dd($res);die;
 
     dd($res->all());die;
