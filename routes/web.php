@@ -19,7 +19,7 @@ Route::get('/', function () {
 //     $data = trim($data);
 //
 ////     dd($data);die;
-     $ql = \QL\QueryList::html($data,'utf-8');
+     $ql = \QL\QueryList::html($data,'shift_jis');
      dd($ql);die;
      $res = $ql->find('span')->texts();
 ////        ->queryData();
