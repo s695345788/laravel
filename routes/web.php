@@ -15,7 +15,7 @@ Route::get('/', function () {
      $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
          ])->getHtml();
 
-     $ql = \QL\QueryList::html($data)->encoding('utf-8','shift_jis')
+     $ql = \QL\QueryList::html($data,'utf-8')->encoding('utf-8','shift_jis')
      ->rules([
          'title'=>array('div','text'),
          'link'=>array('div','html')
