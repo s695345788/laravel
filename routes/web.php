@@ -20,7 +20,7 @@ Route::get('/', function () {
 //
 ////     dd($data);die;
      $ql = \QL\QueryList::html($data,'shift_jis');
-     dd($ql);die;
+//     dd($ql);die;
      $res = $ql->find('span')->texts();
 ////        ->queryData();
     dd($res->all());die;
