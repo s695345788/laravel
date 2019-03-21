@@ -27,3 +27,10 @@ Route::get('/', function () {
 //     dd($data);
 //    return view('welcome');
 });
+\Symfony\Component\Routing\Route::get('/a',function (){
+    $data = QL\QueryList::get('https://www.amazon.co.jp/dp/B0782339QB',[],[
+//         'proxy' => 'http://127.0.0.1:1090',
+    ])->find('.nav-a-content')->texts();
+    dd($data->all());die;
+
+});
